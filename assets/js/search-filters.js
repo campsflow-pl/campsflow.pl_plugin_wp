@@ -628,7 +628,8 @@
 		function fetchResults() {
 			var params = currentParams();
 			var qs     = params.toString();
-			var url    = qs ? endpoint + '?' + qs : endpoint;
+			var sep    = endpoint.indexOf( '?' ) !== -1 ? '&' : '?';
+			var url    = qs ? endpoint + sep + qs : endpoint;
 
 			if ( controller ) {
 				controller.abort();
