@@ -403,12 +403,15 @@ final class SettingsPage {
 
 		$pageId = SearchPage::findPage();
 
+		$status = '';
 		if ( $pageId > 0 ) {
 			$post   = get_post( $pageId );
 			$status = $post instanceof \WP_Post ? $post->post_status : 'unknown';
 
 			if ( $status === 'trash' ) {
 				echo '<p class="cf-form__desc cf-form__desc--warn">⚠ ' . esc_html__( 'Strona wyszukiwarki jest w koszu.', 'campsflow' ) . '</p>';
+			} elseif ( $status === 'draft' ) {
+				echo '<p class="cf-form__desc cf-form__desc--warn">⚠ ' . esc_html__( 'Strona wyszukiwarki istnieje, ale jest szkicem — nie jest widoczna dla odwiedzających. Kliknij poniżej, żeby ją opublikować.', 'campsflow' ) . '</p>';
 			} else {
 				$url = (string) get_permalink( $pageId );
 				echo '<p class="cf-form__desc cf-form__desc--set">✓ ';
@@ -424,7 +427,13 @@ final class SettingsPage {
 		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="margin-top:12px">';
 		wp_nonce_field( 'cf_create_search_page' );
 		echo '<input type="hidden" name="action" value="cf_create_search_page">';
-		$label = ( $pageId > 0 ) ? __( 'Przywróć / Utwórz ponownie', 'campsflow' ) : __( 'Utwórz stronę wyszukiwarki', 'campsflow' );
+		if ( $status === 'draft' ) {
+			$label = __( 'Opublikuj stronę wyszukiwarki', 'campsflow' );
+		} elseif ( $pageId > 0 ) {
+			$label = __( 'Przywróć / Utwórz ponownie', 'campsflow' );
+		} else {
+			$label = __( 'Utwórz stronę wyszukiwarki', 'campsflow' );
+		}
 		echo '<button type="submit" class="button button-secondary">' . esc_html( $label ) . '</button>';
 		echo '</form>';
 	}
@@ -439,12 +448,15 @@ final class SettingsPage {
 
 		$pageId = RegistrationFormShortcode::findPage();
 
+		$status = '';
 		if ( $pageId > 0 ) {
 			$post   = get_post( $pageId );
 			$status = $post instanceof \WP_Post ? $post->post_status : 'unknown';
 
 			if ( $status === 'trash' ) {
 				echo '<p class="cf-form__desc cf-form__desc--warn">⚠ ' . esc_html__( 'Strona rejestracji jest w koszu.', 'campsflow' ) . '</p>';
+			} elseif ( $status === 'draft' ) {
+				echo '<p class="cf-form__desc cf-form__desc--warn">⚠ ' . esc_html__( 'Strona rejestracji istnieje, ale jest szkicem — nie jest widoczna dla odwiedzających. Kliknij poniżej, żeby ją opublikować.', 'campsflow' ) . '</p>';
 			} else {
 				$url = (string) get_permalink( $pageId );
 				echo '<p class="cf-form__desc cf-form__desc--set">✓ ';
@@ -460,7 +472,13 @@ final class SettingsPage {
 		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="margin-top:12px">';
 		wp_nonce_field( 'cf_create_registration_page' );
 		echo '<input type="hidden" name="action" value="cf_create_registration_page">';
-		$label = ( $pageId > 0 ) ? __( 'Przywróć / Utwórz ponownie', 'campsflow' ) : __( 'Utwórz stronę rejestracji', 'campsflow' );
+		if ( $status === 'draft' ) {
+			$label = __( 'Opublikuj stronę rejestracji', 'campsflow' );
+		} elseif ( $pageId > 0 ) {
+			$label = __( 'Przywróć / Utwórz ponownie', 'campsflow' );
+		} else {
+			$label = __( 'Utwórz stronę rejestracji', 'campsflow' );
+		}
 		echo '<button type="submit" class="button button-secondary">' . esc_html( $label ) . '</button>';
 		echo '</form>';
 	}

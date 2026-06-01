@@ -83,7 +83,25 @@ final class RegistrationFormShortcode {
 		);
 
 		if ( ! empty( $trashed ) ) {
-			wp_untrash_post( (int) $trashed[0] );
+			$id = (int) $trashed[0];
+			wp_untrash_post( $id );
+			wp_publish_post( $id );
+			return;
+		}
+
+		$draft = get_posts(
+			array(
+				'post_type'      => 'page',
+				'post_status'    => 'draft',
+				'posts_per_page' => 1,
+				'meta_key'       => '_campsflow_registration_page',
+				'meta_value'     => '1',
+				'fields'         => 'ids',
+			)
+		);
+
+		if ( ! empty( $draft ) ) {
+			wp_publish_post( (int) $draft[0] );
 			return;
 		}
 
