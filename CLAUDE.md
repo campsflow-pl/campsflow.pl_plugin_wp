@@ -11,6 +11,17 @@ Tenanci (organizatorzy) mają własne strony WordPress i chcą:
 
 Plugin działa jako **klient** wobec Campsflow public API — nie ma własnego backendu.
 
+## Filozofia integracji
+
+Plugin celowo **nie odpytuje API w czasie rzeczywistym**. Zamiast tego periodycznie (domyślnie co 60 min) synchronizuje pełen katalog imprez i turnusów do lokalnych CPT WordPress. Każde żądanie strony ofertowej trafia wyłącznie do lokalnej bazy WP — zero zależności od dostępności API Campsflow w momencie wyświetlenia strony.
+
+Konsekwencje tego wyboru, które trzeba mieć w głowie:
+
+- **Dane są zawsze lekko nieaktualne** — maksymalne opóźnienie = interwał synchronizacji. To świadomy kompromis: SEO, wydajność i niezawodność ważniejsze niż aktualność co do minuty.
+- **Kubełki dostępności, nie liczby** — plugin nigdy nie przechowuje `seatsAvailable = 7`. Przechowuje `few_left`. Dzięki temu drobne zmiany liczby miejsc nie powodują ciągłych upsertów, a wyświetlana informacja pozostaje sensowna nawet po kilku godzinach.
+- **Rejestracja zawsze w czasie rzeczywistym** — formularz zapisu to iframe do `ukryteskarby.pl/embed/…`. Tylko ten fragment komunikuje się z systemem Campsflow na żywo; strony ofertowe są w pełni statyczne.
+- **Synchronizator jest idempotentny** — można go wywołać wielokrotnie bez efektów ubocznych. Upsert po UUID, trash dla pozycji usuniętych z API.
+
 ## Architektura — trzy warstwy
 
 ```
