@@ -514,7 +514,7 @@
 	   ──────────────────────────────────────────────────────────── */
 	function initFilterForm( form ) {
 		function pushUrl() {
-			var clean  = collectFilters( form );
+			var clean  = collectFilters( document );
 			var qs     = clean.toString();
 			var newUrl = window.location.pathname + ( qs ? '?' + qs : '' );
 			window.history.pushState( {}, '', newUrl );
