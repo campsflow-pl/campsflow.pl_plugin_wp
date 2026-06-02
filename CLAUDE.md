@@ -295,8 +295,7 @@ assets/
     └── event-map.js            ← Leaflet / Google Maps
 tests/
 ├── fixtures/
-│   ├── api-events.json         ← mockowe dane API
-│   └── seed-events.json        ← dane seed (92 imprezy, generowane przez scripts/gen_seed.py)
+│   └── api-events.json         ← mockowe dane API (fallback fixture sync)
 ├── Integration/Sync/
 │   └── WpWriterTest.php
 └── Unit/
