@@ -37,12 +37,15 @@ final class SearchSortShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'header'      => '',
-				'separator'   => '/',
-				'show'        => 'title,date,price',
-				'label_title' => '',
-				'label_date'  => '',
-				'label_price' => '',
+				'header'       => '',
+				'separator'    => '/',
+				'show'         => 'title,date,price',
+				'label_title'  => '',
+				'label_date'   => '',
+				'label_price'  => '',
+				'accent_color' => '',
+				'el_class'     => '',
+				'css'          => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_search_sort'
@@ -70,9 +73,22 @@ final class SearchSortShortcode {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-sort-wrap ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$inlineStyle = '';
+		$accent      = sanitize_hex_color( $atts['accent_color'] );
+		if ( $accent ) {
+			$inlineStyle = '--cf-accent:' . $accent;
+		}
+
 		ob_start();
 
-		echo '<div class="cf-sort-wrap">';
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+		echo '<div class="' . esc_attr( $classes ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		if ( $header !== '' ) {
 			echo '<label class="cf-filter-label">' . esc_html( $header ) . '</label>';

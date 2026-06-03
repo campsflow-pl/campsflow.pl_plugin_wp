@@ -25,6 +25,8 @@ final class SearchFilterShortcode {
 				'fields'      => implode( ',', self::ALL_FIELDS ),
 				'show_reset'  => 'yes',
 				'reset_label' => __( 'Wyczyść filtry', 'campsflow' ),
+				'el_class'    => '',
+				'css'         => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_search_filter'
@@ -33,8 +35,14 @@ final class SearchFilterShortcode {
 		$fields   = array_map( 'trim', explode( ',', $atts['fields'] ) );
 		$endpoint = rest_url( 'campsflow/v1/events' );
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-search-form cf-filters ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		ob_start();
-		echo '<form class="cf-search-form cf-filters" method="get" action="" data-endpoint="' . esc_url( $endpoint ) . '">';
+		echo '<form class="' . esc_attr( $classes ) . '" method="get" action="" data-endpoint="' . esc_url( $endpoint ) . '">';
 
 		foreach ( $fields as $field ) {
 			match ( $field ) {

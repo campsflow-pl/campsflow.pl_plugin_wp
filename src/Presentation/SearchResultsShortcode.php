@@ -19,18 +19,45 @@ final class SearchResultsShortcode {
 	 * @param array<string, string>|string $atts
 	 */
 	public function render( array|string $atts ): string {
-		$atts     = shortcode_atts(
-			array( 'columns' => '3' ),
+		$atts = shortcode_atts(
+			array(
+				'columns'      => '3',
+				'accent_color' => '',
+				'card_bg'      => '',
+				'card_radius'  => '',
+				'el_class'     => '',
+				'css'          => '',
+			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_search_results'
 		);
+
 		$columns  = max( 1, min( 4, (int) $atts['columns'] ) );
 		$endpoint = rest_url( 'campsflow/v1/events' );
 		$postIds  = $this->queryEventIds();
 		$renderer = new EventCardRenderer();
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-search-results ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$styleVars = '--cf-columns:' . $columns;
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		$cardBg    = sanitize_hex_color( $atts['card_bg'] );
+		if ( $accent ) {
+			$styleVars .= ';--cf-accent:' . $accent;
+		}
+		if ( $cardBg ) {
+			$styleVars .= ';--cf-card-bg:' . $cardBg;
+		}
+		if ( $atts['card_radius'] !== '' ) {
+			$styleVars .= ';--cf-card-radius:' . absint( $atts['card_radius'] ) . 'px';
+		}
+
 		ob_start();
-		echo '<div class="cf-search-results" data-endpoint="' . esc_url( $endpoint ) . '" style="--cf-columns:' . esc_attr( (string) $columns ) . '">';
+		echo '<div class="' . esc_attr( $classes ) . '" data-endpoint="' . esc_url( $endpoint ) . '" style="' . esc_attr( $styleVars ) . '">';
 		echo $postIds ? $renderer->renderGrid( $postIds ) : $renderer->renderEmpty(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '</div>';
 		return (string) ob_get_clean();

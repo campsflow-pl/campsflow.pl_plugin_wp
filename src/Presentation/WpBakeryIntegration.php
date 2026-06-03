@@ -35,6 +35,7 @@ final class WpBakeryIntegration {
 	}
 
 	private function mapSearchFilter(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Filtry wyszukiwania', 'campsflow' ),
@@ -66,6 +67,19 @@ final class WpBakeryIntegration {
 							'element' => 'show_reset',
 							'value'   => array( 'yes' ),
 						),
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
 					),
 				),
 			)
@@ -115,6 +129,7 @@ final class WpBakeryIntegration {
 	}
 
 	private function mapSearchSort(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Sortowanie', 'campsflow' ),
@@ -160,12 +175,33 @@ final class WpBakeryIntegration {
 						'param_name' => 'label_price',
 						'value'      => '',
 					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (przyciski)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapSearchResults(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Wyniki wyszukiwania', 'campsflow' ),
@@ -263,6 +299,42 @@ final class WpBakeryIntegration {
 						'heading'    => __( 'Tekst gdy brak ceny', 'campsflow' ),
 						'param_name' => 'price_empty',
 						'value'      => __( 'na zapytanie', 'campsflow' ),
+					),
+					// Style group
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (przyciski)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Tło karty', 'campsflow' ),
+						'param_name' => 'card_bg',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'        => 'textfield',
+						'heading'     => __( 'Zaokrąglenie karty (px)', 'campsflow' ),
+						'param_name'  => 'card_radius',
+						'value'       => '',
+						'description' => __( 'np. 10', 'campsflow' ),
+						'group'       => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
 					),
 				),
 			)
@@ -778,6 +850,7 @@ final class WpBakeryIntegration {
 	}
 
 	private function mapEventSessions(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Turnusy', 'campsflow' ),
@@ -816,6 +889,41 @@ final class WpBakeryIntegration {
 						'heading'    => '',
 						'param_name' => 'show_custom_fields',
 						'value'      => array( __( 'Pokaż pola własne', 'campsflow' ) => '1' ),
+					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (przyciski)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Tło sekcji', 'campsflow' ),
+						'param_name' => 'box_bg',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'        => 'textfield',
+						'heading'     => __( 'Zaokrąglenie (px)', 'campsflow' ),
+						'param_name'  => 'box_radius',
+						'value'       => '',
+						'description' => __( 'np. 10', 'campsflow' ),
+						'group'       => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
 					),
 				),
 			)

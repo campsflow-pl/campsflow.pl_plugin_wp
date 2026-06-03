@@ -90,6 +90,11 @@ final class EventShortcodes {
 				'show_name'           => '1',
 				'show_meeting_points' => '0',
 				'show_custom_fields'  => '0',
+				'accent_color'        => '',
+				'box_bg'              => '',
+				'box_radius'          => '',
+				'el_class'            => '',
+				'css'                 => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_sessions'
@@ -104,6 +109,25 @@ final class EventShortcodes {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-sessions-box ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$styleVars = '';
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		$boxBg     = sanitize_hex_color( $atts['box_bg'] );
+		if ( $accent ) {
+			$styleVars .= '--cf-accent:' . $accent . ';';
+		}
+		if ( $boxBg ) {
+			$styleVars .= '--cf-card-bg:' . $boxBg . ';';
+		}
+		if ( $atts['box_radius'] !== '' ) {
+			$styleVars .= '--cf-card-radius:' . absint( $atts['box_radius'] ) . 'px;';
+		}
+
 		$sessions = new WP_Query(
 			array(
 				'post_type'      => SessionPostType::SLUG,
@@ -116,8 +140,9 @@ final class EventShortcodes {
 			)
 		);
 
+		$styleAttr = $styleVars !== '' ? ' style="' . esc_attr( $styleVars ) . '"' : '';
 		ob_start();
-		echo '<div class="cf-sessions-box">';
+		echo '<div class="' . esc_attr( $classes ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( $title ) {
 			echo '<h2 class="cf-sessions-box__title">' . esc_html( $title ) . '</h2>';
 		}
