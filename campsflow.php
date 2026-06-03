@@ -3,7 +3,7 @@
  * Plugin Name: Campsflow
  * Plugin URI:  https://campsflow.pl
  * Description: WordPress integration for Campsflow.pl reservation system. Synchronizes camps and sessions to local CPT, provides listing shortcodes, and embeds the Campsflow registration form via iframe.
- * Version:     0.1.32
+ * Version:     0.1.33
  * Author:      Campsflow
  * Author URI:  https://campsflow.pl
  * License:     GPL-2.0-or-later
