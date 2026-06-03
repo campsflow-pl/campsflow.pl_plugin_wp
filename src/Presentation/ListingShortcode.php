@@ -19,8 +19,11 @@ final class ListingShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'view'    => 'events',
-				'columns' => '3',
+				'view'         => 'events',
+				'columns'      => '3',
+				'accent_color' => '',
+				'el_class'     => '',
+				'css'          => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_listing'
@@ -30,8 +33,20 @@ final class ListingShortcode {
 		$columns  = max( 1, min( 4, (int) $atts['columns'] ) );
 		$endpoint = rest_url( 'campsflow/v1/events' );
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-listing ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$styleVars = '--cf-columns:' . $columns . ';';
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		if ( $accent ) {
+			$styleVars .= '--cf-accent:' . $accent . ';';
+		}
+
 		ob_start();
-		echo '<div class="cf-listing" style="--cf-columns:' . esc_attr( (string) $columns ) . '">';
+		echo '<div class="' . esc_attr( $classes ) . '" style="' . esc_attr( $styleVars ) . '">';
 		$this->renderFilters( $endpoint );
 		echo '<div class="cf-search-results" data-endpoint="' . esc_url( $endpoint ) . '">';
 

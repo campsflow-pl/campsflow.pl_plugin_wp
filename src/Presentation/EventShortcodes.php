@@ -27,7 +27,11 @@ final class EventShortcodes {
 	/** @param array<string,string>|string $atts */
 	public function renderMeta( array|string $atts ): string {
 		$atts   = shortcode_atts(
-			array( 'show' => 'location,tags,description' ),
+			array(
+				'show'     => 'location,tags,description',
+				'el_class' => '',
+				'css'      => '',
+			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_meta'
 		);
@@ -37,11 +41,17 @@ final class EventShortcodes {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-event-body ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		$loc  = json_decode( (string) get_post_meta( $postId, 'cf_localization', true ), true );
 		$desc = json_decode( (string) get_post_meta( $postId, 'cf_description', true ), true );
 
 		ob_start();
-		echo '<div class="cf-event-body">';
+		echo '<div class="' . esc_attr( $classes ) . '">';
 		if ( in_array( 'photos', $show, true ) ) {
 			$this->echoPhotos( $postId );
 		}
@@ -191,9 +201,12 @@ final class EventShortcodes {
 	private function renderTermPills( array|string $atts, string $taxonomy, string $shortcode, string $pillClass ): string {
 		$atts   = shortcode_atts(
 			array(
-				'sort' => 'name_asc',
-				'max'  => '0',
-				'gap'  => '6',
+				'sort'         => 'name_asc',
+				'max'          => '0',
+				'gap'          => '6',
+				'accent_color' => '',
+				'el_class'     => '',
+				'css'          => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			$shortcode
@@ -224,8 +237,19 @@ final class EventShortcodes {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-tags ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		$wrapStyle = 'display:flex;flex-wrap:wrap;gap:' . $gap . 'px';
-		$out       = '<div class="cf-tags" style="' . esc_attr( $wrapStyle ) . '">';
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		if ( $accent ) {
+			$wrapStyle .= ';--cf-accent:' . $accent;
+		}
+
+		$out = '<div class="' . esc_attr( $classes ) . '" style="' . esc_attr( $wrapStyle ) . '">';
 		foreach ( $terms as $term ) {
 			$out .= '<span class="' . esc_attr( $pillClass ) . '">' . esc_html( $term->name ) . '</span>';
 		}

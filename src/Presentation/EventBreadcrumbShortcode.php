@@ -13,11 +13,14 @@ final class EventBreadcrumbShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'mode'       => 'localization',
-				'depth'      => '2',
-				'separator'  => '›',
-				'show_home'  => 'yes',
-				'home_label' => __( 'Główna', 'campsflow' ),
+				'mode'         => 'localization',
+				'depth'        => '2',
+				'separator'    => '›',
+				'show_home'    => 'yes',
+				'home_label'   => __( 'Główna', 'campsflow' ),
+				'accent_color' => '',
+				'el_class'     => '',
+				'css'          => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_breadcrumb'
@@ -34,11 +37,29 @@ final class EventBreadcrumbShortcode {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$styleAttr = '';
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		if ( $accent ) {
+			$styleAttr = ' style="--cf-accent:' . esc_attr( $accent ) . '"';
+		}
+
 		ob_start();
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
+			echo '<div class="' . esc_attr( $wrapClass ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
 		if ( 'season_class' === $mode ) {
 			$this->renderSeasonClass( $postId, $separator, $showHome, $homeLabel );
 		} else {
 			$this->renderLocalization( $postId, $separator, $depth, $showHome, $homeLabel );
+		}
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
+			echo '</div>';
 		}
 		return (string) ob_get_clean();
 	}

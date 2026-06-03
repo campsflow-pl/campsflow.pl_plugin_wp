@@ -22,6 +22,8 @@ final class SearchFilterFieldShortcode {
 				'field'       => 'category',
 				'header'      => '',
 				'placeholder' => '',
+				'el_class'    => '',
+				'css'         => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_search_filter_field'
@@ -31,7 +33,17 @@ final class SearchFilterFieldShortcode {
 		$header      = sanitize_text_field( (string) $atts['header'] );
 		$placeholder = sanitize_text_field( (string) $atts['placeholder'] );
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		ob_start();
+
+		if ( $wrapClass !== '' ) {
+			echo '<div class="' . esc_attr( $wrapClass ) . '">';
+		}
 
 		if ( $header !== '' ) {
 			echo '<label class="cf-filter-label">' . esc_html( $header ) . '</label>';
@@ -65,6 +77,10 @@ final class SearchFilterFieldShortcode {
 			case 'dates':
 				$this->renderDateRangePicker( __( 'Termin', 'campsflow' ) );
 				break;
+		}
+
+		if ( $wrapClass !== '' ) {
+			echo '</div>';
 		}
 
 		return (string) ob_get_clean();

@@ -16,6 +16,9 @@ final class EventDocumentsShortcode {
 				'show_label'   => '',
 				'label'        => __( 'Dokumenty', 'campsflow' ),
 				'open_new_tab' => 'yes',
+				'accent_color' => '',
+				'el_class'     => '',
+				'css'          => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_documents'
@@ -39,8 +42,20 @@ final class EventDocumentsShortcode {
 
 		$target = $openNewTab ? ' target="_blank" rel="noopener"' : '';
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-docs-list ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$styleAttr = '';
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		if ( $accent ) {
+			$styleAttr = ' style="--cf-accent:' . esc_attr( $accent ) . '"';
+		}
+
 		ob_start();
-		echo '<div class="cf-docs-list">';
+		echo '<div class="' . esc_attr( $classes ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( $showLabel && '' !== $labelText ) {
 			echo '<div class="cf-docs-list__label">' . esc_html( $labelText ) . '</div>';
 		}

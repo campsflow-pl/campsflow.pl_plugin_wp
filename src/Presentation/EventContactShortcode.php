@@ -13,8 +13,11 @@ final class EventContactShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'show_label' => '',
-				'label'      => __( 'Kontakt', 'campsflow' ),
+				'show_label'   => '',
+				'label'        => __( 'Kontakt', 'campsflow' ),
+				'accent_color' => '',
+				'el_class'     => '',
+				'css'          => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_contact'
@@ -43,8 +46,20 @@ final class EventContactShortcode {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-contact-box ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$styleAttr = '';
+		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		if ( $accent ) {
+			$styleAttr = ' style="--cf-accent:' . esc_attr( $accent ) . '"';
+		}
+
 		ob_start();
-		echo '<div class="cf-contact-box">';
+		echo '<div class="' . esc_attr( $classes ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( $showLabel && '' !== $labelText ) {
 			echo '<div class="cf-contact-box__label">' . esc_html( $labelText ) . '</div>';
 		}

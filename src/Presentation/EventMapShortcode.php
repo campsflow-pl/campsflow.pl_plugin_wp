@@ -24,6 +24,8 @@ final class EventMapShortcode {
 				'zoom'     => '14',
 				'map_type' => 'roadmap',
 				'post_id'  => '0',
+				'el_class' => '',
+				'css'      => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_map'
@@ -41,8 +43,20 @@ final class EventMapShortcode {
 			$postId = (int) get_the_ID();
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		ob_start();
+		if ( $wrapClass !== '' ) {
+			echo '<div class="' . esc_attr( $wrapClass ) . '">';
+		}
 		$this->echoMapDiv( $postId, $provider, $zoom, $mapType, $height );
+		if ( $wrapClass !== '' ) {
+			echo '</div>';
+		}
 		return (string) ob_get_clean();
 	}
 }

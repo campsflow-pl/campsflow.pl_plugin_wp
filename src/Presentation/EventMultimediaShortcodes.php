@@ -21,7 +21,11 @@ final class EventMultimediaShortcodes {
 	/** @param array<string,string>|string $atts */
 	public function renderLeadImage( array|string $atts ): string {
 		$atts   = shortcode_atts(
-			array( 'alt' => '' ),
+			array(
+				'alt'      => '',
+				'el_class' => '',
+				'css'      => '',
+			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_lead_image'
 		);
@@ -34,7 +38,18 @@ final class EventMultimediaShortcodes {
 			return '';
 		}
 		$altText = '' !== $atts['alt'] ? sanitize_text_field( $atts['alt'] ) : (string) get_the_title( $postId );
-		return '<img class="cf-lead-image" src="' . esc_url( $url ) . '" alt="' . esc_attr( $altText ) . '" loading="lazy">';
+
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		$img = '<img class="cf-lead-image" src="' . esc_url( $url ) . '" alt="' . esc_attr( $altText ) . '" loading="lazy">';
+		if ( $wrapClass !== '' ) {
+			return '<div class="' . esc_attr( $wrapClass ) . '">' . $img . '</div>';
+		}
+		return $img;
 	}
 
 	// ── Gallery ───────────────────────────────────────────────────────────────
@@ -51,6 +66,8 @@ final class EventMultimediaShortcodes {
 				'autoplay'        => '0',
 				'autoplay_speed'  => '3000',
 				'animation_speed' => '400',
+				'el_class'        => '',
+				'css'             => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_gallery'
@@ -64,10 +81,23 @@ final class EventMultimediaShortcodes {
 		if ( empty( $urls ) ) {
 			return '';
 		}
-		if ( 'slider' === sanitize_key( $atts['mode'] ) ) {
-			return $this->renderGallerySlider( $atts, $urls );
+
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
 		}
-		return $this->renderGalleryGrid( (int) $atts['columns'], $urls );
+		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
+		if ( 'slider' === sanitize_key( $atts['mode'] ) ) {
+			$inner = $this->renderGallerySlider( $atts, $urls );
+		} else {
+			$inner = $this->renderGalleryGrid( (int) $atts['columns'], $urls );
+		}
+
+		if ( $wrapClass !== '' ) {
+			return '<div class="' . esc_attr( $wrapClass ) . '">' . $inner . '</div>';
+		}
+		return $inner;
 	}
 
 	/**
@@ -145,7 +175,11 @@ final class EventMultimediaShortcodes {
 	/** @param array<string,string>|string $atts */
 	public function renderLeadVideo( array|string $atts ): string {
 		$atts   = shortcode_atts(
-			array( 'aspect_ratio' => '16-9' ),
+			array(
+				'aspect_ratio' => '16-9',
+				'el_class'     => '',
+				'css'          => '',
+			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_lead_video'
 		);
@@ -166,8 +200,14 @@ final class EventMultimediaShortcodes {
 		$padding     = $paddingMap[ $aspectRatio ] ?? '56.25';
 		$embedUrl    = $this->buildEmbedUrl( $url );
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-video-wrap ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		ob_start();
-		echo '<div class="cf-video-wrap" style="padding-bottom:' . esc_attr( $padding ) . '%">';
+		echo '<div class="' . esc_attr( $classes ) . '" style="padding-bottom:' . esc_attr( $padding ) . '%">';
 		if ( '' !== $embedUrl ) {
 			echo '<iframe src="' . esc_url( $embedUrl ) . '" allowfullscreen loading="lazy"></iframe>';
 		} else {

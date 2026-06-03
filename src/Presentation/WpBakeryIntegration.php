@@ -87,6 +87,7 @@ final class WpBakeryIntegration {
 	}
 
 	private function mapSearchFilterField(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Pole filtru', 'campsflow' ),
@@ -122,6 +123,19 @@ final class WpBakeryIntegration {
 						'param_name'  => 'placeholder',
 						'value'       => '',
 						'description' => __( 'Pozostaw puste, aby użyć domyślnego.', 'campsflow' ),
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
 					),
 				),
 			)
@@ -342,6 +356,7 @@ final class WpBakeryIntegration {
 	}
 
 	private function mapListing(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Lista obozów', 'campsflow' ),
@@ -372,12 +387,33 @@ final class WpBakeryIntegration {
 						),
 						'std'        => '3',
 					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (przyciski)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventMeta(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Szczegóły wydarzenia', 'campsflow' ),
@@ -405,12 +441,26 @@ final class WpBakeryIntegration {
 						),
 						'std'        => 'location,tags,description',
 					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventTags(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Tagi', 'campsflow' ),
@@ -466,12 +516,33 @@ final class WpBakeryIntegration {
 						'param_name' => 'label_text',
 						'value'      => __( 'Tagi', 'campsflow' ),
 					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (tło pillsa)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventAgeGroups(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Grupy wiekowe', 'campsflow' ),
@@ -504,12 +575,33 @@ final class WpBakeryIntegration {
 						'param_name' => 'gap',
 						'value'      => '6',
 					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (tło pillsa)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventField(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Pole wydarzenia', 'campsflow' ),
@@ -575,12 +667,26 @@ final class WpBakeryIntegration {
 						'param_name' => 'label',
 						'value'      => '',
 					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventLeadImage(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Zdjęcie główne', 'campsflow' ),
@@ -596,12 +702,26 @@ final class WpBakeryIntegration {
 						'value'       => '',
 						'description' => __( 'Jeśli puste, użyty zostanie tytuł wydarzenia.', 'campsflow' ),
 					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventGallery(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Galeria', 'campsflow' ),
@@ -668,12 +788,26 @@ final class WpBakeryIntegration {
 						'value'       => '400',
 						'description' => __( 'Czas przejścia slajdu w ms', 'campsflow' ),
 					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventLeadVideo(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Wideo główne', 'campsflow' ),
@@ -693,12 +827,26 @@ final class WpBakeryIntegration {
 						),
 						'std'        => '16-9',
 					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventMap(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Mapa', 'campsflow' ),
@@ -745,12 +893,26 @@ final class WpBakeryIntegration {
 							'value'   => array( 'google' ),
 						),
 					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventContact(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Kontakt', 'campsflow' ),
@@ -771,12 +933,33 @@ final class WpBakeryIntegration {
 						'param_name' => 'label',
 						'value'      => __( 'Kontakt', 'campsflow' ),
 					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (ikony/linki)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventDocuments(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Dokumenty', 'campsflow' ),
@@ -804,12 +987,33 @@ final class WpBakeryIntegration {
 						'value'      => array( __( 'Otwieraj w nowej karcie', 'campsflow' ) => 'yes' ),
 						'std'        => 'yes',
 					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (ikony/linki)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
+					),
 				),
 			)
 		);
 	}
 
 	private function mapEventBreadcrumb(): void {
+		$styleGroup = __( 'Styl', 'campsflow' );
 		vc_map(
 			array(
 				'name'        => __( 'CampsFlow — Breadcrumb', 'campsflow' ),
@@ -843,6 +1047,26 @@ final class WpBakeryIntegration {
 						'heading'    => __( 'Separator', 'campsflow' ),
 						'param_name' => 'separator',
 						'value'      => '›',
+					),
+					array(
+						'type'       => 'colorpicker',
+						'heading'    => __( 'Kolor akcentu (linki)', 'campsflow' ),
+						'param_name' => 'accent_color',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'textfield',
+						'heading'    => __( 'Dodatkowa klasa CSS', 'campsflow' ),
+						'param_name' => 'el_class',
+						'value'      => '',
+						'group'      => $styleGroup,
+					),
+					array(
+						'type'       => 'css_editor',
+						'heading'    => __( 'Opcje CSS', 'campsflow' ),
+						'param_name' => 'css',
+						'group'      => $styleGroup,
 					),
 				),
 			)

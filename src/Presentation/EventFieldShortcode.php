@@ -23,6 +23,8 @@ final class EventFieldShortcode {
 				'render_mode' => 'auto',
 				'show_label'  => '0',
 				'label'       => '',
+				'el_class'    => '',
+				'css'         => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_field'
@@ -42,8 +44,14 @@ final class EventFieldShortcode {
 			return '';
 		}
 
+		$cssClass = '';
+		if ( $atts['css'] !== '' && function_exists( 'vc_shortcode_custom_css_class' ) ) {
+			$cssClass = vc_shortcode_custom_css_class( $atts['css'], ' ' );
+		}
+		$classes = trim( 'cf-field ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
+
 		$rendered = ( new FieldValueRenderer() )->applyRenderMode( $value, $renderMode );
-		$out      = '<div class="cf-field">';
+		$out      = '<div class="' . esc_attr( $classes ) . '">';
 		if ( $showLabel && '' !== $labelText ) {
 			$out .= '<span class="cf-field__label">' . esc_html( $labelText ) . '</span>';
 		}
