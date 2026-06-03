@@ -22,9 +22,11 @@ final class EventMultimediaShortcodes {
 	public function renderLeadImage( array|string $atts ): string {
 		$atts   = shortcode_atts(
 			array(
-				'alt'      => '',
-				'el_class' => '',
-				'css'      => '',
+				'alt'           => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_lead_image'
@@ -45,9 +47,19 @@ final class EventMultimediaShortcodes {
 		}
 		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$inlineStyle = '';
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+
 		$img = '<img class="cf-lead-image" src="' . esc_url( $url ) . '" alt="' . esc_attr( $altText ) . '" loading="lazy">';
-		if ( $wrapClass !== '' ) {
-			return '<div class="' . esc_attr( $wrapClass ) . '">' . $img . '</div>';
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
+			return '<div class="' . esc_attr( $wrapClass ) . '"' . $styleAttr . '>' . $img . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		return $img;
 	}
@@ -66,6 +78,8 @@ final class EventMultimediaShortcodes {
 				'autoplay'        => '0',
 				'autoplay_speed'  => '3000',
 				'animation_speed' => '400',
+				'border_radius'   => '',
+				'box_shadow'      => '',
 				'el_class'        => '',
 				'css'             => '',
 			),
@@ -88,14 +102,24 @@ final class EventMultimediaShortcodes {
 		}
 		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$inlineStyle = '';
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+
 		if ( 'slider' === sanitize_key( $atts['mode'] ) ) {
 			$inner = $this->renderGallerySlider( $atts, $urls );
 		} else {
 			$inner = $this->renderGalleryGrid( (int) $atts['columns'], $urls );
 		}
 
-		if ( $wrapClass !== '' ) {
-			return '<div class="' . esc_attr( $wrapClass ) . '">' . $inner . '</div>';
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
+			return '<div class="' . esc_attr( $wrapClass ) . '"' . $styleAttr . '>' . $inner . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		return $inner;
 	}
@@ -176,9 +200,11 @@ final class EventMultimediaShortcodes {
 	public function renderLeadVideo( array|string $atts ): string {
 		$atts   = shortcode_atts(
 			array(
-				'aspect_ratio' => '16-9',
-				'el_class'     => '',
-				'css'          => '',
+				'aspect_ratio'  => '16-9',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_lead_video'
@@ -206,8 +232,17 @@ final class EventMultimediaShortcodes {
 		}
 		$classes = trim( 'cf-video-wrap ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$divStyle = 'padding-bottom:' . $padding . '%';
+		if ( $atts['border_radius'] !== '' ) {
+			$divStyle .= ';border-radius:' . absint( $atts['border_radius'] ) . 'px';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$divStyle .= ';box-shadow:' . $boxShadow;
+		}
+
 		ob_start();
-		echo '<div class="' . esc_attr( $classes ) . '" style="padding-bottom:' . esc_attr( $padding ) . '%">';
+		echo '<div class="' . esc_attr( $classes ) . '" style="' . esc_attr( $divStyle ) . '">';
 		if ( '' !== $embedUrl ) {
 			echo '<iframe src="' . esc_url( $embedUrl ) . '" allowfullscreen loading="lazy"></iframe>';
 		} else {

@@ -37,15 +37,19 @@ final class SearchSortShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'header'       => '',
-				'separator'    => '/',
-				'show'         => 'title,date,price',
-				'label_title'  => '',
-				'label_date'   => '',
-				'label_price'  => '',
-				'accent_color' => '',
-				'el_class'     => '',
-				'css'          => '',
+				'header'        => '',
+				'separator'     => '/',
+				'show'          => 'title,date,price',
+				'label_title'   => '',
+				'label_date'    => '',
+				'label_price'   => '',
+				'accent_color'  => '',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_search_sort'
@@ -82,7 +86,22 @@ final class SearchSortShortcode {
 		$inlineStyle = '';
 		$accent      = sanitize_hex_color( $atts['accent_color'] );
 		if ( $accent ) {
-			$inlineStyle = '--cf-accent:' . $accent;
+			$inlineStyle .= '--cf-accent:' . $accent . ';';
+		}
+		$textColor = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$inlineStyle .= 'color:' . $textColor . ';';
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$inlineStyle .= 'background-color:' . $bgColor . ';';
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
 		}
 
 		ob_start();

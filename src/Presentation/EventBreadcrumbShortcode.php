@@ -13,14 +13,18 @@ final class EventBreadcrumbShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'mode'         => 'localization',
-				'depth'        => '2',
-				'separator'    => '›',
-				'show_home'    => 'yes',
-				'home_label'   => __( 'Główna', 'campsflow' ),
-				'accent_color' => '',
-				'el_class'     => '',
-				'css'          => '',
+				'mode'          => 'localization',
+				'depth'         => '2',
+				'separator'     => '›',
+				'show_home'     => 'yes',
+				'home_label'    => __( 'Główna', 'campsflow' ),
+				'accent_color'  => '',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_breadcrumb'
@@ -43,11 +47,27 @@ final class EventBreadcrumbShortcode {
 		}
 		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
-		$styleAttr = '';
-		$accent    = sanitize_hex_color( $atts['accent_color'] );
+		$inlineStyle = '';
+		$accent      = sanitize_hex_color( $atts['accent_color'] );
 		if ( $accent ) {
-			$styleAttr = ' style="--cf-accent:' . esc_attr( $accent ) . '"';
+			$inlineStyle .= '--cf-accent:' . $accent . ';';
 		}
+		$textColor = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$inlineStyle .= 'color:' . $textColor . ';';
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$inlineStyle .= 'background-color:' . $bgColor . ';';
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
 
 		ob_start();
 		if ( $wrapClass !== '' || $styleAttr !== '' ) {

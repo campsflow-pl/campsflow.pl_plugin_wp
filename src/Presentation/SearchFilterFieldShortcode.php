@@ -19,11 +19,15 @@ final class SearchFilterFieldShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'field'       => 'category',
-				'header'      => '',
-				'placeholder' => '',
-				'el_class'    => '',
-				'css'         => '',
+				'field'         => 'category',
+				'header'        => '',
+				'placeholder'   => '',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_search_filter_field'
@@ -39,10 +43,28 @@ final class SearchFilterFieldShortcode {
 		}
 		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$inlineStyle = '';
+		$textColor   = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$inlineStyle .= 'color:' . $textColor . ';';
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$inlineStyle .= 'background-color:' . $bgColor . ';';
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+
 		ob_start();
 
-		if ( $wrapClass !== '' ) {
-			echo '<div class="' . esc_attr( $wrapClass ) . '">';
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
+			echo '<div class="' . esc_attr( $wrapClass ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		if ( $header !== '' ) {
@@ -79,7 +101,7 @@ final class SearchFilterFieldShortcode {
 				break;
 		}
 
-		if ( $wrapClass !== '' ) {
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
 			echo '</div>';
 		}
 

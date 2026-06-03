@@ -25,6 +25,8 @@ final class SearchResultsShortcode {
 				'accent_color' => '',
 				'card_bg'      => '',
 				'card_radius'  => '',
+				'text_color'   => '',
+				'box_shadow'   => '',
 				'el_class'     => '',
 				'css'          => '',
 			),
@@ -54,6 +56,14 @@ final class SearchResultsShortcode {
 		}
 		if ( $atts['card_radius'] !== '' ) {
 			$styleVars .= ';--cf-card-radius:' . absint( $atts['card_radius'] ) . 'px';
+		}
+		$textColor = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$styleVars .= ';color:' . $textColor;
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$styleVars .= ';box-shadow:' . $boxShadow;
 		}
 
 		ob_start();

@@ -19,11 +19,15 @@ final class ListingShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'view'         => 'events',
-				'columns'      => '3',
-				'accent_color' => '',
-				'el_class'     => '',
-				'css'          => '',
+				'view'          => 'events',
+				'columns'       => '3',
+				'accent_color'  => '',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_listing'
@@ -43,6 +47,21 @@ final class ListingShortcode {
 		$accent    = sanitize_hex_color( $atts['accent_color'] );
 		if ( $accent ) {
 			$styleVars .= '--cf-accent:' . $accent . ';';
+		}
+		$textColor = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$styleVars .= 'color:' . $textColor . ';';
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$styleVars .= 'background-color:' . $bgColor . ';';
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$styleVars .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$styleVars .= 'box-shadow:' . $boxShadow . ';';
 		}
 
 		ob_start();

@@ -19,13 +19,15 @@ final class EventMapShortcode {
 	public function render( array|string $atts ): string {
 		$atts = shortcode_atts(
 			array(
-				'provider' => 'openstreetmap',
-				'height'   => '400',
-				'zoom'     => '14',
-				'map_type' => 'roadmap',
-				'post_id'  => '0',
-				'el_class' => '',
-				'css'      => '',
+				'provider'      => 'openstreetmap',
+				'height'        => '400',
+				'zoom'          => '14',
+				'map_type'      => 'roadmap',
+				'post_id'       => '0',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_map'
@@ -49,12 +51,22 @@ final class EventMapShortcode {
 		}
 		$wrapClass = trim( sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$inlineStyle = '';
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+
 		ob_start();
-		if ( $wrapClass !== '' ) {
-			echo '<div class="' . esc_attr( $wrapClass ) . '">';
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
+			echo '<div class="' . esc_attr( $wrapClass ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		$this->echoMapDiv( $postId, $provider, $zoom, $mapType, $height );
-		if ( $wrapClass !== '' ) {
+		if ( $wrapClass !== '' || $styleAttr !== '' ) {
 			echo '</div>';
 		}
 		return (string) ob_get_clean();

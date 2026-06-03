@@ -18,13 +18,17 @@ final class EventFieldShortcode {
 	public function render( array|string $atts ): string {
 		$atts   = shortcode_atts(
 			array(
-				'field'       => 'post_title',
-				'custom_key'  => '',
-				'render_mode' => 'auto',
-				'show_label'  => '0',
-				'label'       => '',
-				'el_class'    => '',
-				'css'         => '',
+				'field'         => 'post_title',
+				'custom_key'    => '',
+				'render_mode'   => 'auto',
+				'show_label'    => '0',
+				'label'         => '',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_field'
@@ -50,8 +54,26 @@ final class EventFieldShortcode {
 		}
 		$classes = trim( 'cf-field ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$inlineStyle = '';
+		$textColor   = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$inlineStyle .= 'color:' . $textColor . ';';
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$inlineStyle .= 'background-color:' . $bgColor . ';';
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+
 		$rendered = ( new FieldValueRenderer() )->applyRenderMode( $value, $renderMode );
-		$out      = '<div class="' . esc_attr( $classes ) . '">';
+		$out      = '<div class="' . esc_attr( $classes ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( $showLabel && '' !== $labelText ) {
 			$out .= '<span class="cf-field__label">' . esc_html( $labelText ) . '</span>';
 		}

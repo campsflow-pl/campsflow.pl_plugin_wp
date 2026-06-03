@@ -28,9 +28,13 @@ final class EventShortcodes {
 	public function renderMeta( array|string $atts ): string {
 		$atts   = shortcode_atts(
 			array(
-				'show'     => 'location,tags,description',
-				'el_class' => '',
-				'css'      => '',
+				'show'          => 'location,tags,description',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			'campsflow_event_meta'
@@ -47,11 +51,29 @@ final class EventShortcodes {
 		}
 		$classes = trim( 'cf-event-body ' . sanitize_html_class( $atts['el_class'] ) . $cssClass );
 
+		$inlineStyle = '';
+		$textColor   = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$inlineStyle .= 'color:' . $textColor . ';';
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$inlineStyle .= 'background-color:' . $bgColor . ';';
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$inlineStyle .= 'border-radius:' . absint( $atts['border_radius'] ) . 'px;';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$inlineStyle .= 'box-shadow:' . $boxShadow . ';';
+		}
+		$styleAttr = $inlineStyle !== '' ? ' style="' . esc_attr( $inlineStyle ) . '"' : '';
+
 		$loc  = json_decode( (string) get_post_meta( $postId, 'cf_localization', true ), true );
 		$desc = json_decode( (string) get_post_meta( $postId, 'cf_description', true ), true );
 
 		ob_start();
-		echo '<div class="' . esc_attr( $classes ) . '">';
+		echo '<div class="' . esc_attr( $classes ) . '"' . $styleAttr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( in_array( 'photos', $show, true ) ) {
 			$this->echoPhotos( $postId );
 		}
@@ -103,6 +125,8 @@ final class EventShortcodes {
 				'accent_color'        => '',
 				'box_bg'              => '',
 				'box_radius'          => '',
+				'text_color'          => '',
+				'box_shadow'          => '',
 				'el_class'            => '',
 				'css'                 => '',
 			),
@@ -136,6 +160,14 @@ final class EventShortcodes {
 		}
 		if ( $atts['box_radius'] !== '' ) {
 			$styleVars .= '--cf-card-radius:' . absint( $atts['box_radius'] ) . 'px;';
+		}
+		$textColor = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$styleVars .= 'color:' . $textColor . ';';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$styleVars .= 'box-shadow:' . $boxShadow . ';';
 		}
 
 		$sessions = new WP_Query(
@@ -201,12 +233,16 @@ final class EventShortcodes {
 	private function renderTermPills( array|string $atts, string $taxonomy, string $shortcode, string $pillClass ): string {
 		$atts   = shortcode_atts(
 			array(
-				'sort'         => 'name_asc',
-				'max'          => '0',
-				'gap'          => '6',
-				'accent_color' => '',
-				'el_class'     => '',
-				'css'          => '',
+				'sort'          => 'name_asc',
+				'max'           => '0',
+				'gap'           => '6',
+				'accent_color'  => '',
+				'text_color'    => '',
+				'bg_color'      => '',
+				'border_radius' => '',
+				'box_shadow'    => '',
+				'el_class'      => '',
+				'css'           => '',
 			),
 			is_array( $atts ) ? $atts : array(),
 			$shortcode
@@ -247,6 +283,21 @@ final class EventShortcodes {
 		$accent    = sanitize_hex_color( $atts['accent_color'] );
 		if ( $accent ) {
 			$wrapStyle .= ';--cf-accent:' . $accent;
+		}
+		$textColor = sanitize_hex_color( $atts['text_color'] );
+		if ( $textColor ) {
+			$wrapStyle .= ';color:' . $textColor;
+		}
+		$bgColor = sanitize_hex_color( $atts['bg_color'] );
+		if ( $bgColor ) {
+			$wrapStyle .= ';background-color:' . $bgColor;
+		}
+		if ( $atts['border_radius'] !== '' ) {
+			$wrapStyle .= ';border-radius:' . absint( $atts['border_radius'] ) . 'px';
+		}
+		$boxShadow = sanitize_text_field( $atts['box_shadow'] );
+		if ( $boxShadow !== '' ) {
+			$wrapStyle .= ';box-shadow:' . $boxShadow;
 		}
 
 		$out = '<div class="' . esc_attr( $classes ) . '" style="' . esc_attr( $wrapStyle ) . '">';
