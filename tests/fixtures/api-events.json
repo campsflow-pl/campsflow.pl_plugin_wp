@@ -11,15 +11,14 @@
     "maxAge": 16,
     "eventTags": [
       {
-        "name": "hit sezonu",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "active",
-      "przygoda",
-      "góry"
+      "Aktywny",
+      "Przygodowy"
     ],
     "localization": {
       "destination": "Bieszczady",
@@ -151,7 +150,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "8964fd20-a541-4e41-8a26-dbcfcb3a1268",
@@ -203,7 +203,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "7472e9b5-05cb-45db-a01c-6e7d7ae62800",
@@ -244,7 +245,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "318c065f-24dd-47e2-8355-34d598eea83e",
@@ -296,7 +298,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "8b404e66-8f65-48ab-8c9a-e0d7ddf026b7",
@@ -337,12 +340,13 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz przygodowy",
+        "name": "Przygodowy",
         "color": "#f97316",
         "visible": true
       }
@@ -360,15 +364,15 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "nowość",
-        "color": "#fb923c",
+        "name": "Nowość",
+        "color": "#8b5cf6",
         "visible": true
       }
     ],
     "eventProfile": [
-      "chill",
-      "sport",
-      "active"
+      "Wypoczynkowy",
+      "Sportowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Bałtyk",
@@ -499,7 +503,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "7ed8abe5-9e4e-49de-995b-699de5b78411",
@@ -540,7 +545,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "8bc49914-ae34-4038-886c-4840f62a961d",
@@ -592,7 +598,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "900c600c-e272-4278-9ace-56a6d1e22803",
@@ -633,7 +640,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "35a1c831-3d83-4e42-82e0-137e510790a9",
@@ -685,13 +693,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz nad morzem",
-        "color": "#38bdf8",
+        "name": "Aktywny",
+        "color": "#22c55e",
         "visible": true
       }
     ]
@@ -708,15 +717,14 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "hit sezonu",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "active",
-      "surf",
-      "sport"
+      "Aktywny",
+      "Sportowy"
     ],
     "localization": {
       "destination": "Bałtyk",
@@ -848,7 +856,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "9c5aac38-ecdc-4d2c-9f5c-a6b338b30b99",
@@ -900,7 +909,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "53d4ad2f-b91a-46d7-b308-632be7d40c79",
@@ -941,7 +951,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "21a21718-7f64-42d4-95b4-e6e432e7eea8",
@@ -993,7 +1004,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "0e501242-9104-4b4b-be57-833dd66b3386",
@@ -1034,13 +1046,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz sportowy",
-        "color": "#22c55e",
+        "name": "Sportowy",
+        "color": "#3b82f6",
         "visible": true
       }
     ]
@@ -1057,15 +1070,14 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "nowość",
-        "color": "#fb923c",
+        "name": "Nowość",
+        "color": "#8b5cf6",
         "visible": true
       }
     ],
     "eventProfile": [
-      "active",
-      "kite",
-      "sport"
+      "Aktywny",
+      "Sportowy"
     ],
     "localization": {
       "destination": "Bałtyk",
@@ -1196,7 +1208,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "02dbe376-f1c3-4c6f-824c-845905ecb7ae",
@@ -1237,7 +1250,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "933f5dd2-dd79-476d-92c1-88ecaaa88b88",
@@ -1289,7 +1303,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "3d7b01ab-fb21-424a-b6a5-fcd7152fd73c",
@@ -1330,13 +1345,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz sportowy",
-        "color": "#22c55e",
+        "name": "Sportowy",
+        "color": "#3b82f6",
         "visible": true
       }
     ]
@@ -1353,15 +1369,14 @@
     "maxAge": 14,
     "eventTags": [
       {
-        "name": "polecamy",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "active",
-      "przygoda",
-      "góry"
+      "Aktywny",
+      "Przygodowy"
     ],
     "localization": {
       "destination": "Pieniny",
@@ -1493,7 +1508,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "bacef1d7-d204-4265-9505-325699e38477",
@@ -1545,7 +1561,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "fea2a0c3-2f04-42a9-86ad-3f9d6de1d65e",
@@ -1586,7 +1603,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "fe07f6c2-6468-49f7-b14c-6eda744bb00f",
@@ -1649,7 +1667,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "49c02e4a-4f56-482f-91eb-93a68a7c6254",
@@ -1690,13 +1709,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz aktywny",
-        "color": "#a78bfa",
+        "name": "Aktywny",
+        "color": "#22c55e",
         "visible": true
       }
     ]
@@ -1713,14 +1733,14 @@
     "maxAge": 10,
     "eventTags": [
       {
-        "name": "polecamy",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "chill",
-      "active"
+      "Wypoczynkowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Pieniny",
@@ -1851,7 +1871,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "278752f0-7a27-40d6-8542-5bf8bd4b144a",
@@ -1903,7 +1924,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "296d2cdb-82c2-4817-914a-64ed98177087",
@@ -1944,7 +1966,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "36395095-8890-4ceb-93d7-4eb7a2f171a9",
@@ -1996,7 +2019,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "b3f3829f-25f3-4fd1-b1a3-697ed52e95be",
@@ -2037,7 +2061,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "f6af68ab-1c0b-49ae-82f2-8a101695ad77",
@@ -2089,13 +2114,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz wypoczynkowy",
-        "color": "#6ee7b7",
+        "name": "Wypoczynkowy",
+        "color": "#14b8a6",
         "visible": true
       }
     ]
@@ -2112,9 +2138,9 @@
     "maxAge": 16,
     "eventTags": [],
     "eventProfile": [
-      "active",
-      "sport",
-      "przygoda"
+      "Aktywny",
+      "Sportowy",
+      "Przygodowy"
     ],
     "localization": {
       "destination": "Małopolska",
@@ -2246,7 +2272,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "dc8952d7-291c-4f6c-918d-f56f475dca6e",
@@ -2298,7 +2325,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "c9e04be8-110f-44e8-b296-6be65e282022",
@@ -2350,7 +2378,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "0ed9c1b0-8f19-45e1-8184-49c80b38d711",
@@ -2391,7 +2420,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "6f5bd4a2-69fc-4f0f-b217-3967e1ed3aed",
@@ -2454,13 +2484,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz sportowy",
-        "color": "#22c55e",
+        "name": "Sportowy",
+        "color": "#3b82f6",
         "visible": true
       }
     ]
@@ -2477,15 +2508,14 @@
     "maxAge": 15,
     "eventTags": [
       {
-        "name": "nowość",
-        "color": "#fb923c",
+        "name": "Nowość",
+        "color": "#8b5cf6",
         "visible": true
       }
     ],
     "eventProfile": [
-      "nauka",
-      "active",
-      "tech"
+      "Twórczy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Tatry",
@@ -2617,7 +2647,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "f9100217-f88b-449b-a333-3e75c4e8444e",
@@ -2669,7 +2700,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "738accfa-0278-43b8-bb6f-c85a0dfea3a7",
@@ -2710,7 +2742,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "1f8ca14c-46ed-4c6c-89b6-1c158922bfb9",
@@ -2762,7 +2795,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "443de053-8997-412f-8f93-e7dad2919952",
@@ -2803,13 +2837,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz naukowy",
-        "color": "#facc15",
+        "name": "Twórczy",
+        "color": "#8b5cf6",
         "visible": true
       }
     ]
@@ -2826,8 +2861,8 @@
     "maxAge": 17,
     "eventTags": [],
     "eventProfile": [
-      "chill",
-      "active"
+      "Wypoczynkowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Tatry",
@@ -2958,7 +2993,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "3f8009de-00fb-4db5-9ffc-681649f2bf69",
@@ -2999,7 +3035,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "0a957d8f-0d6e-4686-9ce9-6539622d11dd",
@@ -3051,7 +3088,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "3bfd8b4b-d076-4e33-9bc7-24fcb108b429",
@@ -3092,7 +3130,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "40c3ab60-e583-4534-b51e-29de89ea6f00",
@@ -3144,13 +3183,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz wypoczynkowy",
-        "color": "#6ee7b7",
+        "name": "Wypoczynkowy",
+        "color": "#14b8a6",
         "visible": true
       }
     ]
@@ -3167,15 +3207,15 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "polecamy",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "język",
-      "chill",
-      "active"
+      "Językowy",
+      "Wypoczynkowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Tatry",
@@ -3306,7 +3346,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "fc0c4966-6653-4c2e-a647-110e0e571f5a",
@@ -3347,7 +3388,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "a69a8914-f5ea-4e7e-8f95-a39cb868fce0",
@@ -3399,7 +3441,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "910fcce6-c605-4264-82be-28af9a435240",
@@ -3440,13 +3483,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz językowy",
-        "color": "#60a5fa",
+        "name": "Językowy",
+        "color": "#6366f1",
         "visible": true
       }
     ]
@@ -3463,9 +3507,8 @@
     "maxAge": 16,
     "eventTags": [],
     "eventProfile": [
-      "active",
-      "sport",
-      "woda"
+      "Aktywny",
+      "Sportowy"
     ],
     "localization": {
       "destination": "Mazury",
@@ -3607,7 +3650,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "0b66616c-2a37-47ec-a7db-589254afdfd2",
@@ -3670,7 +3714,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "f909fa53-9646-4f3c-b39c-a3301c789483",
@@ -3711,7 +3756,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "5ea1b23c-b190-49c3-a85c-68c4e5aa4e86",
@@ -3785,7 +3831,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "63937d29-d497-472e-929b-eea838dd1c50",
@@ -3826,13 +3873,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz wodny",
-        "color": "#38bdf8",
+        "name": "Sportowy",
+        "color": "#3b82f6",
         "visible": true
       }
     ]
@@ -3849,9 +3897,8 @@
     "maxAge": 16,
     "eventTags": [],
     "eventProfile": [
-      "active",
-      "góry",
-      "sport"
+      "Aktywny",
+      "Sportowy"
     ],
     "localization": {
       "destination": "Bieszczady",
@@ -3983,7 +4030,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "d1e4f509-23cd-4879-9228-b321128cb4f6",
@@ -4024,7 +4072,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "33ba5684-dd38-476e-97d1-9614681ef6cc",
@@ -4087,7 +4136,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "926d799e-9b1f-473a-86c1-a98995041dfb",
@@ -4139,13 +4189,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz rowerowy",
-        "color": "#4ade80",
+        "name": "Aktywny",
+        "color": "#22c55e",
         "visible": true
       }
     ]
@@ -4162,9 +4213,8 @@
     "maxAge": 16,
     "eventTags": [],
     "eventProfile": [
-      "active",
-      "góry",
-      "przygoda"
+      "Aktywny",
+      "Przygodowy"
     ],
     "localization": {
       "destination": "Tatry",
@@ -4296,7 +4346,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "8951d0a2-111d-42eb-9e36-9c4b8a80de4d",
@@ -4337,7 +4388,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "3d09043e-4138-4ea9-be09-e20167d4fe99",
@@ -4389,7 +4441,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "a69aee03-5929-4ced-af37-256e3b34840c",
@@ -4430,7 +4483,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "84150350-10d7-44a8-8d61-30b165bd6c7e",
@@ -4482,13 +4536,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz górski",
-        "color": "#94a3b8",
+        "name": "Przygodowy",
+        "color": "#f97316",
         "visible": true
       }
     ]
@@ -4505,8 +4560,8 @@
     "maxAge": 14,
     "eventTags": [],
     "eventProfile": [
-      "active",
-      "sport"
+      "Aktywny",
+      "Sportowy"
     ],
     "localization": {
       "destination": "Roztocze",
@@ -4649,7 +4704,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "416d89d2-bdb9-465c-82ad-e68f72cc8fd6",
@@ -4690,7 +4746,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "119e8e87-8bc1-41cb-a44f-86228e21d21e",
@@ -4753,7 +4810,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "d69574db-957e-4988-addf-58360560f51a",
@@ -4794,7 +4852,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "621f4efc-a9ab-42a6-b1fb-15e4acd1747b",
@@ -4846,13 +4905,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz sportowy",
-        "color": "#22c55e",
+        "name": "Sportowy",
+        "color": "#3b82f6",
         "visible": true
       }
     ]
@@ -4869,25 +4929,24 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "nowość",
-        "color": "#fb923c",
+        "name": "Nowość",
+        "color": "#8b5cf6",
         "visible": true
       },
       {
-        "name": "zagranica",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "active",
-      "morze",
-      "przygoda"
+      "Aktywny",
+      "Przygodowy"
     ],
     "eventCategories": [
       {
-        "name": "Obóz zagraniczny",
-        "color": "#e879f9",
+        "name": "Językowy",
+        "color": "#6366f1",
         "visible": true
       }
     ],
@@ -4973,7 +5032,7 @@
         "numberOfDays": 15,
         "priceFrom": 429000,
         "currency": "PLN",
-        "season": "lato",
+        "season": "Lato 2026",
         "transport": {
           "type": "ferry",
           "description": "Autokar + prom Split–Ancona (w cenie)."
@@ -5037,7 +5096,7 @@
         "numberOfDays": 15,
         "priceFrom": 429000,
         "currency": "PLN",
-        "season": "lato",
+        "season": "Lato 2026",
         "transport": {
           "type": "bus",
           "description": "Autokar klimatyzowany przez Słowenię (bez promu)."
@@ -5090,7 +5149,7 @@
         "numberOfDays": 15,
         "priceFrom": 409000,
         "currency": "PLN",
-        "season": "lato",
+        "season": "Lato 2026",
         "transport": {
           "type": "ferry",
           "description": "Autokar + prom Rijeka–Ancona (w cenie). Early-bird −5% do 1 marca."
@@ -5149,15 +5208,15 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "nowość",
-        "color": "#fb923c",
+        "name": "Nowość",
+        "color": "#8b5cf6",
         "visible": true
       }
     ],
     "eventProfile": [
-      "język",
-      "chill",
-      "góry"
+      "Językowy",
+      "Wypoczynkowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Tatry",
@@ -5289,7 +5348,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "1162009c-1b58-4e64-b70c-a65283156cf3",
@@ -5330,7 +5390,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "a37090fa-6fef-45c8-a3a1-ea05a4f3e2f0",
@@ -5382,7 +5443,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "2fb05a8d-d0cf-4c09-bbcc-30725e8f876c",
@@ -5423,13 +5485,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokoje 4-osobowe z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz językowy",
-        "color": "#60a5fa",
+        "name": "Językowy",
+        "color": "#6366f1",
         "visible": true
       }
     ]
@@ -5446,30 +5509,24 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "nowość",
-        "color": "#fb923c",
+        "name": "Nowość",
+        "color": "#8b5cf6",
         "visible": true
       },
       {
-        "name": "zagranica",
-        "color": "#fb923c",
-        "visible": true
-      },
-      {
-        "name": "język angielski",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "active",
-      "morze",
-      "edukacja"
+      "Aktywny",
+      "Twórczy"
     ],
     "eventCategories": [
       {
-        "name": "Obóz językowy za granicą",
-        "color": "#818cf8",
+        "name": "Językowy",
+        "color": "#6366f1",
         "visible": true
       }
     ],
@@ -5554,7 +5611,7 @@
         "numberOfDays": 14,
         "priceFrom": 679000,
         "currency": "PLN",
-        "season": "lato",
+        "season": "Lato 2026",
         "transport": {
           "type": "plane",
           "description": "Lot czarterowy Kraków–Malta i powrót (w cenie). Wylot 07:30, lądowanie MLA 10:45."
@@ -5613,7 +5670,7 @@
         "numberOfDays": 14,
         "priceFrom": 679000,
         "currency": "PLN",
-        "season": "lato",
+        "season": "Lato 2026",
         "transport": {
           "type": "plane",
           "description": "Lot czarterowy Warszawa Chopin–Malta i powrót (w cenie)."
@@ -5661,7 +5718,7 @@
         "numberOfDays": 21,
         "priceFrom": 969000,
         "currency": "PLN",
-        "season": "lato",
+        "season": "Lato 2026",
         "transport": {
           "type": "plane",
           "description": "Lot czarterowy Kraków–Malta i powrót (w cenie)."
@@ -5715,9 +5772,8 @@
     "maxAge": 99,
     "eventTags": [],
     "eventProfile": [
-      "chill",
-      "active",
-      "rodzinny"
+      "Wypoczynkowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Tatry",
@@ -5848,7 +5904,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokój rodzinny 4-osobowy z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "b2b6aabf-27d5-4486-9ce3-1ff2fc9bfd7d",
@@ -5889,7 +5946,8 @@
             "label": "Typ zakwaterowania",
             "value": "Pokój rodzinny 4-osobowy z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       },
       {
         "id": "240fdb60-c211-44c9-b484-b38d6cf3da86",
@@ -5941,13 +5999,14 @@
             "label": "Typ zakwaterowania",
             "value": "Pokój rodzinny 4-osobowy z łazienką"
           }
-        ]
+        ],
+        "season": "Lato 2026"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz rodzinny",
-        "color": "#fda4af",
+        "name": "Wypoczynkowy",
+        "color": "#14b8a6",
         "visible": true
       }
     ]
@@ -5964,8 +6023,7 @@
     "maxAge": 11,
     "eventTags": [],
     "eventProfile": [
-      "zimowy",
-      "sport"
+      "Sportowy"
     ],
     "localization": {
       "destination": "Tatry",
@@ -6102,7 +6160,8 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       },
       {
         "id": "f7611f89-7d1e-43a4-a8b4-32640a6ee7b7",
@@ -6159,7 +6218,8 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       },
       {
         "id": "4e6f533a-6760-40d3-849d-7a62e0790328",
@@ -6216,13 +6276,14 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       }
     ],
     "eventCategories": [
       {
-        "name": "Kolonia zimowa",
-        "color": "#bae6fd",
+        "name": "Aktywny",
+        "color": "#22c55e",
         "visible": true
       }
     ]
@@ -6239,15 +6300,14 @@
     "maxAge": 17,
     "eventTags": [
       {
-        "name": "hit sezonu",
-        "color": "#fb923c",
+        "name": "Promocja",
+        "color": "#ef4444",
         "visible": true
       }
     ],
     "eventProfile": [
-      "zimowy",
-      "sport",
-      "active"
+      "Sportowy",
+      "Aktywny"
     ],
     "localization": {
       "destination": "Tatry",
@@ -6395,7 +6455,8 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       },
       {
         "id": "7d312c4f-7356-46e3-a50d-00e679effebf",
@@ -6452,7 +6513,8 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       },
       {
         "id": "9b47877f-c0c3-4821-bb73-dde782662c37",
@@ -6520,7 +6582,8 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       },
       {
         "id": "e7c9e1be-ed82-4d97-b031-3d4c431e0c45",
@@ -6577,13 +6640,14 @@
             "label": "Dopłata",
             "value": "Skipass: 620 zł"
           }
-        ]
+        ],
+        "season": "Zima 2026/2027"
       }
     ],
     "eventCategories": [
       {
-        "name": "Obóz zimowy",
-        "color": "#bae6fd",
+        "name": "Sportowy",
+        "color": "#3b82f6",
         "visible": true
       }
     ]
